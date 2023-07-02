@@ -1,0 +1,51 @@
+@import 'styles/colors';
+@import 'styles/typography';
+
+:root {
+  font-family: $mainFont;
+  line-height: 1.5;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: $base100;
+  background-color: $base700;
+}
+
+.body-container {
+  margin: 20px 40px;
+  min-height: calc(100vh - 100px);
+}
+
+ion-icon {
+  font-size: 60px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $base500; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $primary700; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $primary500; 
+}

@@ -1,0 +1,29 @@
+.DarkCorner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  .darkcorner_canvas {
+    height: 300px;
+    width: 50%;
+    flex: 2;
+  }
+  .darkcorner_canvas_xl {
+    height: 500px;
+    width: 50%;
+    flex: 2;
+  }
+  @media ( max-width: 700px )  {
+    .darkcorner_canvas {
+      width:100%;
+    }
+    
+    .darkcorner_canvas:last-child {
+      flex-basis:auto;
+    }
+  }
+}
+.darkCornerContainer {
+  width: calc(100% - 300px);
+  height: calc(100% - 400px);
+}

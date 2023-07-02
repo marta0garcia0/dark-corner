@@ -1,0 +1,72 @@
+@import './../../styles/colors';
+
+.ChuckyGame_container {
+	position: absolute;
+	width: calc(100% - 200px);
+	border-radius: 10px;
+	background-color: rgba($base500, 0.7);
+	.ChuckyGame_menu {
+		border-radius: 10px;
+		display: flex;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		margin: 10px;
+		.Chuckys_container {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100px;
+			height: 160px;
+			.Chuckys {
+				width: 80px;
+				border-radius: 10px;
+				background-color: rgba($aquablue, 0.7);
+				margin: 10px;
+				box-shadow:  10px 10px 20px $greenblue,
+				-10px -10px 20px $base500;
+				img {
+					width: 60px;
+					height: auto;
+					margin: 10px;
+				}
+				&:hover {
+					background-color: rgba($aquablue, 1);
+					margin: 15px;
+					box-shadow:  5px 5px 10px $greenblue,
+					-5px -5px 10px $base500;
+					img {
+						width: 64px;
+					}
+				}
+				&.active {
+					box-shadow:  5px 5px 10px $blue,
+					-5px -5px 10px $blue;
+					background-color: $greenblue;
+				}
+			}
+		}
+		.Chuckys_img {
+			height: 160px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 160px;
+			width: 0;
+			.Chuckys_container_bg {
+				width: 100px;
+			}
+		}
+	}
+	.ChuckyGame {
+		.game_container {
+			height: 400px;
+			width: 100%;
+			svg {
+				position: absolute;
+				width: 100%;
+				left: 0;
+			}
+		}
+	}
+}
