@@ -9,8 +9,6 @@ export const Creative = withMenu(() => {
     <div className="Creative">
       <Carrousel theme="light">
         <Jiggle />
-        Procreate
-        blender
       </Carrousel>
     </div>
   );

@@ -61,11 +61,11 @@ export const Threejs = withMenu(() => {
               <Canvas camera={{ fov: 75, near: 0.1, far: 100, position: [0, 0, -50] }}>
                 <ambientLight intensity={0.5} />
                 <Suspense fallback={<Loader />}>
-                  <primitive object={ dragon.scene } 
+                  <primitive object={ copiedScene } 
                     position={[0, -20, -30]}
                     scale={4} />
                   <OrbitControls />
-                  <Environment preset="forest" background />
+                  <Environment preset={bg} background />
                 </Suspense>
               </Canvas>
             </div>
@@ -73,11 +73,11 @@ export const Threejs = withMenu(() => {
               <Canvas camera={{ fov: 75, near: 0.1, far: 100, position: [0, 0, -50] }}>
                 <ambientLight intensity={0.5} />
                 <Suspense fallback={<Loader />}>
-                  <primitive object={ copiedScene } 
+                  <primitive object={ dragon.scene } 
                     position={[0, -20, -30]}
                     scale={4} />
                   <OrbitControls />
-                  <Environment preset={bg} background />
+                  <Environment preset="forest" background />
                 </Suspense>
               </Canvas>
             </div>
