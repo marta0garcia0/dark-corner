@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './Tabs.scss';
 
 export default function Tabs({...props}) {
-  const [tab, setTab] = useState(0);
+  const [tab, setTab] = useState(null);
 
   return (
     <div className="Tabs_container">
@@ -13,7 +13,7 @@ export default function Tabs({...props}) {
             onClick={() => setTab(index)} key={item.title}>{item.title}</div>)}
       </div>
       {props.children.map((child, index) => {
-        return <div className={`Tabs_item ${index === tab ? 'visible': 'novisible'}`}>
+        return <div key={index} className={`Tabs_item ${index === tab ? 'visible': 'novisible'}`}>
           {child}
         </div>
       }

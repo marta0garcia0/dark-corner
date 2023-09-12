@@ -9,16 +9,17 @@
     margin-bottom: 20px;
   }
   .Threejs_selector {
-    padding: 40px;
+    padding: 10px;
     border-radius: 10px;
 	  background-color: rgba($base500, 0.7);
     display: flex;
-    width: 60%;
-    flex-direction: row;
+    width: 50%;
+      flex-wrap: wrap;
+      flex-direction: row;
     button {
       color: $base500;
       margin: 10px;
-      width: 120px;
+      width: 100px;
       height: 60px;
       border-radius: 10px;
       background-color: rgba($aquablue, 0.7);
@@ -33,7 +34,7 @@
     }
     &.bg {
       margin-left: 20px;
-      width: 30%;
+      width: 50%;
       flex-direction: row;
       flex-wrap: wrap;
     }

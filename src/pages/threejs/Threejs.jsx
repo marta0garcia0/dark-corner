@@ -1,8 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { withMenu } from '../../hocs/withMenu';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { useLoader, Canvas } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 import {
   Environment,
@@ -20,26 +20,31 @@ function Loader() {
 }
 
 export const Threejs = withMenu(() => {
-  const [item, setItem] = useState('dragon');
+  const [item, setItem] = useState(null);
+  const [model, setModel] = useState(null);
   const [bg, setBg] = useState('studio');
-  const dragon = useLoader(GLTFLoader, './blackdragon.glb');
-  const patrickStar = useLoader(GLTFLoader, './patrickStar.glb');
-  const spongeBob = useLoader(GLTFLoader, './sponge_bob.glb');
 
-  const chucky = useLoader(GLTFLoader, './chucky.glb');
-  
-  const copiedScene = useMemo(() => dragon.scene.clone(), [dragon]);
-  const copiedScene2 = useMemo(() => dragon.scene.clone(), [dragon]);
+  useEffect(() => {
+    if (item) {
+      const loader = new GLTFLoader();
+
+      const cosa = loader.load(`./${item}.glb`, (result) => {
+        setModel(result);
+      });
+    }
+  }, [item]);
 
   return (
     <div className="Threejs">
       <Carrousel theme="light">
         <div className="Threejs_select_container">
           <div className="Threejs_selector h3">
-            <button className={`h3 ${item === 'dragon' ? 'active' : ''}`} onClick={() => setItem('dragon')}>Dragon</button>
+            <button className={`h3 ${item === 'blackdragon' ? 'active' : ''}`} onClick={() => setItem('blackdragon')}>Dragon</button>
             <button className={`h3 ${item === 'chucky' ? 'active' : ''}`} onClick={() => setItem('chucky')}>Chucky</button>
-            <button className={`h3 ${item === 'spongeBob' ? 'active' : ''}`} onClick={() => setItem('spongeBob')}>Sponge Bob</button>
+            <button className={`h3 ${item === 'sponge_bob' ? 'active' : ''}`} onClick={() => setItem('sponge_bob')}>Sponge Bob</button>
             <button className={`h3 ${item === 'patrickStar' ? 'active' : ''}`} onClick={() => setItem('patrickStar')}>Patrick Star</button>
+            <button className={`h3 ${item === 'reapy' ? 'active' : ''}`} onClick={() => setItem('reapy')}>Reapy</button>
+            <button className={`h3 ${item === 'freddy' ? 'active' : ''}`} onClick={() => setItem('freddy')}>Freddy Kruegger</button>
           </div>
           <div className="Threejs_selector bg h3">
             <button className={`h3 ${bg === 'studio' ? 'active' : ''}`} onClick={() => setBg('studio')}>Studio</button>
@@ -55,78 +60,12 @@ export const Threejs = withMenu(() => {
           </div>
         </div>
         <Suspense fallback={<Loader />}>
-          {item === 'dragon' ?
-          <div>
+          {model ?
             <div className="threejs_canvas">
               <Canvas camera={{ fov: 75, near: 0.1, far: 100, position: [0, 0, -50] }}>
                 <ambientLight intensity={0.5} />
                 <Suspense fallback={<Loader />}>
-                  <primitive object={ copiedScene } 
-                    position={[0, -20, -30]}
-                    scale={4} />
-                  <OrbitControls />
-                  <Environment preset={bg} background />
-                </Suspense>
-              </Canvas>
-            </div>
-            <div className="threejs_canvas">
-              <Canvas camera={{ fov: 75, near: 0.1, far: 100, position: [0, 0, -50] }}>
-                <ambientLight intensity={0.5} />
-                <Suspense fallback={<Loader />}>
-                  <primitive object={ dragon.scene } 
-                    position={[0, -20, -30]}
-                    scale={4} />
-                  <OrbitControls />
-                  <Environment preset="forest" background />
-                </Suspense>
-              </Canvas>
-            </div>
-            <div className="threejs_canvas">
-              <Canvas camera={{ fov: 75, near: 0.1, far: 100, position: [0, 0, -50] }}>
-                <ambientLight intensity={0.5} />
-                <Suspense fallback={<Loader />}>
-                  <primitive object={ copiedScene2 } 
-                    position={[0, -20, -30]}
-                    scale={4} />
-                  <OrbitControls />
-                </Suspense>
-              </Canvas>
-            </div>
-          </div>
-          : null}
-          {item === 'chucky' ?
-            <div className="threejs_canvas">
-              <Canvas camera={{ fov: 75, near: 0.1, far: 100, position: [0, 0, -50] }}>
-                <ambientLight intensity={0.5} />
-                <Suspense fallback={<Loader />}>
-                  <primitive object={ chucky.scene } 
-                    
-                    scale={4} />
-                  <OrbitControls />
-                  <Environment preset={bg} background />
-                </Suspense>
-              </Canvas>
-            </div>
-          : null}
-          {item === 'spongeBob' ?
-            <div className="threejs_canvas">
-              <Canvas camera={{ fov: 75, near: 0.1, far: 100, position: [0, 0, -50] }}>
-                <ambientLight intensity={0.5} />
-                <Suspense fallback={<Loader />}>
-                  <primitive object={ spongeBob.scene } 
-                    scale={4} />
-                  <OrbitControls />
-                  <Environment preset={bg} background />
-                </Suspense>
-              </Canvas>
-            </div>
-          : null}
-          {item === 'patrickStar' ?
-            <div className="threejs_canvas">
-              <Canvas camera={{ fov: 75, near: 0.1, far: 100, position: [0, 0, -50] }}>
-                <ambientLight intensity={0.5} />
-                <Suspense fallback={<Loader />}>
-                  <primitive object={ patrickStar.scene } 
+                  <primitive object={ model.scene }
                     scale={4} />
                   <OrbitControls />
                   <Environment preset={bg} background />
