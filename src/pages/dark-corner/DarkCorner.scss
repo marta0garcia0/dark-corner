@@ -1,3 +1,4 @@
+@import './../../styles/colors';
 .DarkCorner {
   display: flex;
   flex-direction: row;
@@ -26,4 +27,39 @@
 .darkCornerContainer {
   width: calc(100% - 300px);
   height: calc(100% - 400px);
+}
+
+.Tabs_container {
+	display: grid;
+	margin: 20px 0;
+	.Tabs_menu {
+		display: grid;
+		grid-template-columns: 30% 30% 30%;
+		.Tabs_menu_item {
+			cursor: pointer;
+			padding: 10px;
+			margin: 10px;
+			text-align: center;
+			border-radius: 4px;
+			box-shadow:  10px 10px 20px $aquablue,
+			-10px -10px 20px $greenblue;
+			opacity: 1;
+			&.active {
+				border: 1px solid $greenblue;
+			}
+		}
+	}
+	.Tabs_item {
+		position: relative;
+		margin: 20px auto;
+		top: 0;
+		&.visible {
+			visibility: visible;
+			height: none;
+		}
+		&.novisible {
+			visibility: hidden;
+			height: 0;
+		}
+	}
 }

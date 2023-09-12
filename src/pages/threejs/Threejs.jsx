@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { withMenu } from '../../hocs/withMenu';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
@@ -7,17 +7,11 @@ import { Suspense } from 'react';
 import {
   Environment,
   OrbitControls,
-  Html,
-  useProgress
 } from '@react-three/drei';
 import { Carrousel } from '../../components/carrousel/Carrousel';
+import { Loader } from '../../utils/components';
 
 import './Threejs.scss';
-
-function Loader() {
-  const { progress } = useProgress();
-  return <Html center>{progress} % loaded</Html>;
-}
 
 export const Threejs = withMenu(() => {
   const [item, setItem] = useState(null);
@@ -28,7 +22,7 @@ export const Threejs = withMenu(() => {
     if (item) {
       const loader = new GLTFLoader();
 
-      const cosa = loader.load(`./${item}.glb`, (result) => {
+      loader.load(`./${item}.glb`, (result) => {
         setModel(result);
       });
     }

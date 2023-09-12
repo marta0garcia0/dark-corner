@@ -32,19 +32,20 @@ export const Chucky = () => {
 	// GLTF position
 	controls.target.set(0, 0, 0);
 
-	const animation = chucky.animations.filter(a => a.name.includes('ArmatureAction'));
-	mixer = new AnimationMixer(chucky.scene);
-	mixer.clipAction(animation[animation.length-1]).play();
-
-	scene.add(chucky.scene)
-
 	useEffect(() => {
-		if (container.current) {
-			container.current.innerHTML = '';
-			container.current.append(renderer.domElement);
+		if (chucky) {
+			const animation = chucky.animations.filter(a => a.name.includes('ArmatureAction'));
+			mixer = new AnimationMixer(chucky.scene);
+			mixer.clipAction(animation[animation.length-1]).play();
+		
+			scene.add(chucky.scene);
+			if (container.current) {
+				container.current.innerHTML = '';
+				container.current.append(renderer.domElement);
+			}
+			animate();
 		}
-		animate();	
-	});
+		}, [chucky]);
 	
   const animate = function () {
     requestAnimationFrame(animate)

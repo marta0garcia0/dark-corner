@@ -13,7 +13,6 @@ function Jiggle() {
 		svg.selectAll('*').remove();
 		const image = svg.append('image')
 		image.attr('xlink:href', img).attr('width', 0).attr('height', 0);
-		debugger
 		image.transition()
 		.duration(500)
 		.attr('transform', 'translate(100,100)')

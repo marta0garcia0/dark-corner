@@ -31,21 +31,21 @@ export const Freddy = () => {
 
 	// GLTF position
 	controls.target.set(0, 0, 11);
-
-	const animation = freddy.animations.filter(a => a.name.includes('ArmatureAction'));
-	mixer = new AnimationMixer(freddy.scene);
-	mixer.clipAction(animation[animation.length-1]).play();
-
-	scene.add(freddy.scene)
-
 	useEffect(() => {
-		if (container.current) {
-			container.current.innerHTML = '';
-			container.current.append(renderer.domElement);
-		}
-		animate();	
-	});
+		if (freddy) {
+			const animation = freddy.animations.filter(a => a.name.includes('ArmatureAction'));
+			mixer = new AnimationMixer(freddy.scene);
+			mixer.clipAction(animation[animation.length-1]).play();
 	
+			scene.add(freddy.scene);
+			if (container.current) {
+				container.current.innerHTML = '';
+				container.current.append(renderer.domElement);
+			}
+			animate();	
+		}
+	}, [freddy]);
+
   const animate = function () {
     requestAnimationFrame(animate)
     controls.update();
