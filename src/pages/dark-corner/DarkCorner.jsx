@@ -5,7 +5,6 @@ import { Carrousel } from '../../components/carrousel/Carrousel';
 import { Chucky } from '../../components/action-heroes/Chucky';
 import { Reapy } from '../../components/action-heroes/Reapy';
 import { Freddy } from '../../components/action-heroes/Freddy';
-import { Loader } from '../../utils/components';
 
 import './DarkCorner.scss';
 
