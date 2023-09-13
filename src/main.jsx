@@ -14,25 +14,26 @@ import { PageNotFound404 } from './pages/pageNotFound404/PageNotFound404';
 import './index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const basePath = '/dark-corner';
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: basePath + '/',
     element: <Home />,
   },
   {
-    path: '/d3js',
+    path: basePath + '/d3js',
     element: <D3js />,
   },
   {
-    path: '/creative',
+    path: basePath + '/creative',
     element: <Creative />,
   },
   {
-    path: '/threejs',
+    path: basePath + '/threejs',
     element: <Threejs />,
   },
   {
-    path: '/darkcorner',
+    path: basePath + '/darkcorner',
     element: <DarkCorner />,
   },
   {

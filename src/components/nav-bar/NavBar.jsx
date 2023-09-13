@@ -5,22 +5,24 @@ import Logo from './../../assets/img/logo.png';
 
 import './NavBar.scss';
 
+const basePath = 'dark-corner/';
+
 const pages = [
   {
     label: 'Home',
-    value: '',
+    value: basePath + '',
   },{
     label: 'D3.js',
-    value: 'd3js',
+    value: basePath + 'd3js',
   },{
     label: 'Creative',
-    value: 'creative',
+    value: basePath + 'creative',
   },{
     label: 'Threejs',
-    value: 'threejs',
+    value: basePath + 'threejs',
   },{
     label: 'Darkcorner',
-    value: 'darkcorner',
+    value: basePath + 'darkcorner',
   }];
 
 const  NavBar = () => {
