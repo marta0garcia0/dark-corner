@@ -88,11 +88,11 @@ export const ChuckyGame = () => {
 	const prevActive = usePrevious(active);
 	useEffect(() => {
 		let init = true;
+		if (prevActive !== active && !init) {
+			playSound(chuckyChant);
+		}
 		if (prevActive === null) {
 			init = false;
-		}
-		if (prevActive !== active) {
-			playSound(chuckyChant);
 		}
 		if ((active || active === 0) && active >= 0) {
 			const removeExtras = d3.selectAll('.avoidcollape').nodes();
