@@ -39,6 +39,7 @@ export const Threejs = withMenu(() => {
             <button className={`h3 ${item === 'patrickStar' ? 'active' : ''}`} onClick={() => setItem('patrickStar')}>Patrick Star</button>
             <button className={`h3 ${item === 'reapy' ? 'active' : ''}`} onClick={() => setItem('reapy')}>Reapy</button>
             <button className={`h3 ${item === 'freddy' ? 'active' : ''}`} onClick={() => setItem('freddy')}>Freddy Kruegger</button>
+            <button className={`h3 ${item === 'po' ? 'active' : ''}`} onClick={() => setItem('po')}>Po</button>
           </div>
           <div className="Threejs_selector bg h3">
             <button className={`h3 ${bg === 'studio' ? 'active' : ''}`} onClick={() => setBg('studio')}>Studio</button>

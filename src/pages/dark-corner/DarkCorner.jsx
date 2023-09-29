@@ -5,13 +5,14 @@ import { Carrousel } from '../../components/carrousel/Carrousel';
 import { Chucky } from '../../components/action-heroes/Chucky';
 import { Reapy } from '../../components/action-heroes/Reapy';
 import { Freddy } from '../../components/action-heroes/Freddy';
+import { Po } from '../../components/action-heroes/Po';
 
 import './DarkCorner.scss';
 
 export const DarkCorner = withMenu(() => {
   const [tab, setTab] = useState(null);
 
-  const tabs = [{ title: 'Chucky' }, { title: 'Reapy'}, { title: 'Freddy'}];
+  const tabs = [{ title: 'Chucky' }, { title: 'Reapy'}, { title: 'Freddy'}, { title: 'Po'}];
 
   return (
     <Carrousel theme="">
@@ -34,6 +35,11 @@ export const DarkCorner = withMenu(() => {
         <div key={'2'} className={`Tabs_item ${2 === tab ? 'visible': 'novisible'}`}>
           <Suspense fallback={null}>
             <Freddy />
+          </Suspense>
+        </div>
+        <div key={'3'} className={`Tabs_item ${3 === tab ? 'visible': 'novisible'}`}>
+          <Suspense fallback={null}>
+            <Po />
           </Suspense>
         </div>
       </div>
