@@ -2,7 +2,7 @@ import { withMenu } from '../../hocs/withMenu';
 import { Carrousel } from '../../components/carrousel/Carrousel';
 
 import './Home.scss';
-import img from './../../assets/img/gerba_sia_killer.jpeg';
+import img from './../../assets/img/home_cover.jpg';
 
 export const Home = withMenu(() => {
 
